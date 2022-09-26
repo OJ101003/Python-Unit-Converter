@@ -45,21 +45,22 @@ def Length(value,originalPrefix,desiredPrefix):
 # 6 Spaces to print vertically
 exit = False
 while exit != True:
-    selectionMain = int(input("""1. Length(Working)\n2. Speed and Velocity(NOT WORKING)
-3. Mass(NOT WORKING)\n4. Volume(NOT WORKING)\n5. Time(NOT WORKING)\n6. Exit\n"""))
-    while (selectionMain != 1 and selectionMain != 7):
-        selectionMain = int(input("""1. Length\n2. Speed and Velocity
-3. Mass\n4. Volume\n5. Time\n6. Exit\n"""))
-    if (selectionMain == 1):
+    selectionMain = input("""1. Length(Working)\n2. Speed and Velocity(NOT WORKING)
+3. Mass(NOT WORKING)\n4. Volume(NOT WORKING)\n5. Time(NOT WORKING)\n6. Exit\n""")
+    while (selectionMain != "1" and selectionMain != "6"):
+        selectionMain = input("""1. Length\n2. Speed and Velocity
+3. Mass\n4. Volume\n5. Time\n6. Exit\n""")
+    if (selectionMain == "1"):
             value = int(input("Original Number: "))
+            #Implement try function in future to catch non integers
             for x, i in enumerate(prefixes):
                 print(str((x+1)) +": "+ i)
-            originalPrefix = input("Original Prefix: ")
+            originalPrefix = int(input("Original Prefix: "))
             while (originalPrefix not in range(1, 11)) or (type(originalPrefix) != int ):
                 for x, i in enumerate(prefixes):
                     print(str((x+1)) +": "+ i)
                 originalPrefix = int(input("Original Prefix: "))
-            desiredPrefix = input("Desired Prefix: ")
+            desiredPrefix = int(input("Desired Prefix: "))
             while (desiredPrefix not in range(1, 11)) or type(desiredPrefix) != int :
                 for x, i in enumerate(prefixes):
                     print(str((x+1)) +": "+ i)
@@ -70,7 +71,7 @@ while exit != True:
                 print(str(Length(value, originalPrefix, desiredPrefix)) +" meters")
             else:
                 print(str(Length(value, originalPrefix, desiredPrefix)) +" "+ desiredPrefix +"meters")
-    if (selectionMain == 6):
+    if (selectionMain == "6"):
         exit = True
         break
 """
